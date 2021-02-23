@@ -16,4 +16,5 @@ um den command ".speicherav" zu benutzen, müsst ihr ein Ordner "Bilder" erstell
 
 sonst sollte der selfbot selbsterklärend sein ".optionen" oder ".help" um die befehle anzuschauen.
 
+_der selfbot wird kontinuierlich geupdated_
 bei weiteren fragen könnt ihr mich auf discord adden **butter#0001** und anschreiben. lg ❤️
