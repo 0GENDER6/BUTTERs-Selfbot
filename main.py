@@ -1,6 +1,6 @@
 #BUTTER'S SELFBOT
 
-VERSION = "v1.3"
+VERSION = "v1.4"
 
 import discord, ctypes, json, os, webbrowser, requests, datetime, urllib, time, string, random, asyncio, aiohttp
 from discord.ext import commands, tasks
