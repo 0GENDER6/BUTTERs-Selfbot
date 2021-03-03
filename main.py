@@ -81,7 +81,7 @@ async def laufzeit(ctx):
     embed = discord.Embed(color=RandomColor(), timestamp=ctx.message.created_at, description=f":fire: **{hours} Stunden {minutes} Minuten, {seconds} Sekunden** :fire: ")
     embed.set_author(name='𝐒𝐄𝐋𝐅𝐁𝐎𝐓 - 𝐋𝐀𝐔𝐙𝐄𝐈𝐓')
     embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/746792750971748516/749363254593323078/b60608ed0a2023085eaf730250701c95_1.gif')
-    embed.set_footer(text='BSDCv1.3')
+    embed.set_footer(text='BSDCv1.4')
     await ctx.send(embed=embed, delete_after=10)
     print(f"{Fore.RED}[{datetime.datetime.now()} UTC]\n{Fore.GREEN}Erfolgreich die Selfbot-Laufzeit reingesendet!")
 
@@ -427,7 +427,7 @@ async def serverinfo(ctx):
     embed.add_field(name="Kategorien:", value=len(ctx.guild.categories))
     embed.add_field(name="Rollen:", value=len(ctx.guild.roles))
     embed.add_field(name="Einladungen", value=len(await ctx.guild.invites()))
-    embed.set_author(name = "𝘽𝙐𝙏𝙏𝙀𝙍 - 𝘽𝙎𝘿𝘾𝙫𝟏.𝟯", icon_url = client.user.avatar_url, url = "https://twitter.com/ButterDerG")
+    embed.set_author(name = "𝘽𝙐𝙏𝙏𝙀𝙍 - 𝘽𝙎𝘿𝘾𝙫𝟏.4", icon_url = client.user.avatar_url, url = "https://twitter.com/ButterDerG")
     await ctx.send(embed=embed, delete_after = 10)
     time.sleep(0.25)
     print(f"{Fore.RED}[{datetime.datetime.now()} UTC]\n{Fore.GREEN}Erfolgreich die Serverinformationen von {Fore.RED}{ctx.guild.name}{Fore.GREEN} reingesendet!")
@@ -443,6 +443,32 @@ async def bitcoinfranken(ctx):
     embed.set_author(name="𝐁𝐢𝐭𝐜𝐨𝐢𝐧-𝐖𝐞𝐫𝐭 𝐅𝐑𝐀𝐍𝐊𝐄𝐍")
     await ctx.send(embed=embed)
     print(f"{Fore.RED}[{datetime.datetime.now()} UTC]\n{Fore.GREEN}Erfolgreich den derzeitigen Bitcoin-Wert in {Fore.RED}Franken{Fore.GREEN} reingesendet!")
+
+@Butter.command()
+async def lkanal(ctx):
+    await ctx.message.delete()
+    for channel in list(ctx.guild.channels):
+        try:
+            await channel.delete()
+            print(f"{Fore.RED}[{datetime.datetime.now()} UTC]\n{Fore.GREEN}Alle Channel wurden erfolgreich gelöscht.")
+        except:
+            return
+
+@Butter.command()
+async def lrollen(ctx):
+    await ctx.message.delete()
+    for role in list(ctx.guild.roles):
+        try:
+            await role.delete()
+            print(f"{Fore.RED}[{datetime.datetime.now()} UTC]\n{Fore.GREEN}Alle Rollen wurden erfolgreich gelöscht.")
+        except:
+            pass
+
+@Butter.command()
+async def servername(ctx, *, name):
+    await ctx.message.delete()
+    await ctx.guild.edit(name=name)
+    print(f"{Fore.RED}[{datetime.datetime.now()} UTC]\n{Fore.GREEN}Der Servername wurde erfolgreich zu {Fore.RED}{name}{Fore.GREEN} umbenannt.")
 
 @Butter.command()
 async def bitcoineuro(ctx):
@@ -511,7 +537,7 @@ async def erstenachricht(ctx, channel: discord.TextChannel = None):
         first_message = (await channel.history(limit=1, oldest_first=True).flatten())[0]
         embed = discord.Embed(description=f"[Die Erste Nachricht in diesem Channel [Hier]:]({first_message.jump_url})\n```{first_message.content}\n\nGesendet von: {first_message.author}\n```", colour=0x800080)
         embed.set_footer(
-            text=f"𝘽𝙐𝙏𝙏𝙀𝙍 - 𝘽𝙎𝘿𝘾𝙫𝟏.𝟯", icon_url="https://cdn.discordapp.com/attachments/746792750971748516/764533886234918922/giphy.gif"
+            text=f"𝘽𝙐𝙏𝙏𝙀𝙍 - 𝘽𝙎𝘿𝘾𝙫𝟏.4", icon_url="https://cdn.discordapp.com/attachments/746792750971748516/764533886234918922/giphy.gif"
         )
         await ctx.send(embed=embed)
         print(f"{Fore.RED}[{datetime.datetime.now()} UTC]\n{Fore.GREEN}Die Erste Nacricht wurde erfolgreich gesendet.")
@@ -642,6 +668,15 @@ Löscht deine Nachrichten im Channel.
 {prefix}clearalles
 Löscht den gesamten Chatverlauf von dir im Channel.
 
+{prefix}lchannel
+Löscht alle Channels auf dem Server.
+
+{prefix}lrollen
+Löscht alle Rollen auf dem Server.
+
+{prefix}servername [Name]
+Ändert den Servernamen.
+
 {prefix}login [Token]
 Loggt dich über Google Chrome ein.
 
@@ -729,7 +764,7 @@ adden und anschreiben!
 
 ```
     """)
-  embed.set_author(name = "𝘽𝙐𝙏𝙏𝙀𝙍 - 𝘽𝙎𝘿𝘾𝙫𝟏.3", icon_url = client.user.avatar_url, url = "https://twitter.com/ButterDerG")
+  embed.set_author(name = "𝘽𝙐𝙏𝙏𝙀𝙍 - 𝘽𝙎𝘿𝘾𝙫𝟏.4", icon_url = client.user.avatar_url, url = "https://twitter.com/ButterDerG")
   await ctx.send(embed=embed, delete_after=30)
 
 Butter.run(TOKEN, bot=False, reconnect=True)
